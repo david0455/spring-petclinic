@@ -23,6 +23,14 @@ pipeline {
             steps {
                 bat 'mvn deploy' 
             }
+        }        
+    }
+    post{
+        success{
+            slackSend color: "good", message: "Success: ${env.JOB_NAME} ${env.BUILD_NUMBER}"
+        }
+        failure{
+            slackSend color: "warning", message: "Failure: ${env.JOB_NAME} ${env.BUILD_NUMBER}"
         }
         
     }
