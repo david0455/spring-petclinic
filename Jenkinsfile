@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                bash './mvnw package' 
+                bat './mvnw package' 
             }
         }
     }
